@@ -1,0 +1,80 @@
+<head>
+    <title>Reeeee</title>
+    
+</head>
+<body>
+    
+<form action="#" id="appForm" onsubmit="submit();">
+    <label for="appId">App Id</label>
+    <input type="text" name="appId" id="appId">
+    <label for="appName">App Name</label>
+    <input type="text" name="appName" id="appName">
+    <label for="subtitle">Subtitle</label>
+    <input type="text" name="subtitle" id="subtitle">
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description">
+    <label for="icon">Icon</label>
+    <input type="text" name="icon" id="icon">
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price">
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location">
+    <label for="tint">Tint</label>
+    <input type="text" name="tint" id="tint">
+    <label for="textTint">Text tint</label>
+    <input type="text" name="textTint" id="textTint">
+    <label for="tint2">Second tint</label>
+    <input type="text" name="tint2" id="tint2">
+    <label for="textTint2">Second text tint</label>
+    <input type="text" name="textTint2" id="textTint2">
+    <label for="rating">Rating</label>
+    <input type="text" name="rating" id="rating">
+    
+</form>
+<a href="#" class="ree">submit</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    function submit() {
+        var appIdRaw = $("#appId").val();
+        var appNameRaw = $("#appName").val();
+        var subtitleRaw = $("#subtitle").val();
+        var descriptionRaw = $("#description").val();
+        var iconRaw = $("#icon").val();
+        var priceRaw = $("#price").val();
+        var locationRaw = $("#location").val();
+        var tintRaw = $("#tint").val();
+        var textTintRaw = $("#textTint").val();
+        var tint2Raw = $("#tint2").val();
+        var textTint2Raw = $("#textTint2").val();
+        var ratingRaw = $("#rating").val();
+
+        var appId = appIdRaw.replace("/", "%2F");
+        var appName = appNameRaw.replace("/", "%2F");
+        var subtitle = subtitleRaw.replace("/", "%2F");
+        var description = descriptionRaw.replace("/", "%2F");
+        var icon = iconRaw.replace("/", "%2F");
+        var price = priceRaw.replace("/", "%2F");
+        var location = locationRaw.replace("/", "%2F");
+        var tint = tintRaw.replace("/", "%2F");
+        var textTint = textTintRaw.replace("/", "%2F");
+        var tint2 = tint2Raw.replace("/", "%2F");
+        var textTint2 = textTint2Raw.replace("/", "%2F");
+        var rating = ratingRaw.replace("/", "%2F");
+
+
+        console.log(appId);
+        var url = "http://localhost:3000/" + appId + "/" + appName + "/" + subtitle + "/" + description + "/" + icon + "/" + price + "/" + location + "/" + tint + "/" + textTint + "/" + tint2 + "/" + textTint2 + "/" + rating
+        var JSONItems = [];
+        $.ajax({
+            url: url,
+            dataType: "jsonp",
+            success: function (data) {
+            }
+        });
+        $("input").val("");
+    }
+    $(".ree").click(function() {
+        submit();
+    });
+</script>
+</body>
